@@ -4,7 +4,7 @@
   --color-primary-light: #f5eee6;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -12,16 +12,16 @@ html{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 body {
   font-family: "Poppins", sans-serif;
 }
-
-.container {
-  width: 1170px;
-  margin: 0 auto;
+.containerOne {
+  max-width: auto;
 }
+
 /***********************************************
 *                      HOME
 ***********************************************/
@@ -32,6 +32,7 @@ body {
   background-image: url(../images/bg-home.jpg);
   height: 100vh;
   background-attachment: fixed;
+  width: 100%;
 }
 
 .home .header {
@@ -39,20 +40,23 @@ body {
 }
 
 .home .header .nav {
-  display: flex;
-  justify-content: center;
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
 }
 
 .home .header .nav ul {
   display: flex;
+  justify-content: space-around;
+  width: 100%;
   list-style: none;
 }
 
 .home .header .nav ul li {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 150px;
+  justify-content: space-around;
+  
 }
 
 .home .header .nav ul li a {
@@ -61,7 +65,7 @@ body {
   text-decoration: none;
   font-weight: bold;
   font-size: 12px;
-  padding: 20px;
+  
 }
 
 .home .header .nav ul li a:hover {
@@ -70,7 +74,7 @@ body {
 }
 
 .home .header .nav ul li .logo {
-  margin: 0 30px;
+  margin: 0 20px;
 }
 
 /***********************************************
@@ -115,8 +119,9 @@ body {
   background-color: var(--color-primary);
 }
 
-.about .container {
+.about .containerTwo {
   display: flex;
+  width: 100%;
 }
 
 .about .timing {
@@ -211,6 +216,7 @@ body {
 ***********************************************/
 
 .services {
+  width: 100%;
   padding: 100px 0;
   text-align: center;
   background-color: var(--color-primary-light);
@@ -249,13 +255,15 @@ body {
 ***********************************************/
 
 .appointment {
-  padding: 100px 0;
+  width: 100%;
+  padding: 100px 5px;
   background-color: var(--color-primary);
-  height: 100vh;
+  height: 100%;
   background-image: url(../images/chair-ic.png);
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: 400px;
+  overflow-y: hidden;
 }
 
 .appointment h2 {
@@ -324,6 +332,7 @@ body {
 ***********************************************/
 
 .gallery {
+  width: 100%;
   padding: 100px 0;
   background-color: var(--color-primary-light);
 }
@@ -419,7 +428,7 @@ body {
 *                  FOOTER
 ***********************************************/
 
-.footer{
+.footer {
   background-color: #191919;
   color: white;
   padding: 40px;
@@ -427,17 +436,109 @@ body {
   font-size: 12px;
 }
 
-#link-topo img{
+#link-topo img {
   position: fixed;
   right: 3rem;
   bottom: 3rem;
   width: 3rem;
   height: 3rem;
-  background-color:#3c2915;
+  background-color: #3c2915;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #a38f78;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   box-shadow: 0 0.1rem 0.6rem #00000009;
+}
+
+@media screen and (max-width: 1100px) {
+  .gallery .gallery-wrapper {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 950px) {
+  .home .header .nav ul li a {
+    width: 50%;
+    height: 100%;
+  }
+  .home .header .nav ul li{
+    overflow: hidden;
+    width: 50%;
+  }
+
+  .gallery .gallery-wrapper {
+    width: 100%;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services .boxes {
+    display: flex;
+    flex-direction: column;
+  }
+  .home .banner h1 {
+    font-size: 400%;
+  }
+  .home .header .nav ul{
+    flex-direction: column;
+  }
+  .home .header .nav ul li a{
+   margin: 10px;
+  }
+  .home .header .nav ul li .logo{
+    margin-left: 100%;
+  
+   }
+  .gallery .gallery-wrapper div{
+    width: 30%;
+    margin-left:10%;
+  }
+  .containerTwo{
+    display: flex;
+    flex-direction: column;
+  }
+  .about .experience {
+    margin-left: 18%;
+  }
+  .about .timing{
+    margin: auto;
+    width: 50%;
+  }
+  .head{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 590px) {
+  .appointment .personal-data {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 10px;
+  }
+  .appointment label {
+    text-align: center;
+  }
+  .appointment .personal-data select {
+    width: 95%;
+  }
+  .appointment .personal-data input,
+  .appointment .personal-data select {
+    text-align: center;
+  }
+  .appointment button {
+    margin-left: 37%;
+  }
+  .gallery .gallery-wrapper div{
+    flex-wrap: nowrap;
+    width: 50%;
+    margin-left: 0%;
+  }
+  .home .banner h1 {
+    font-size: 200%;
+  }
 }
